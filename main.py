@@ -10,6 +10,8 @@ TEXT = (
 )
 
 def main():
+    if not 1 <= len(TEXT) <= 280:
+        raise ValueError("entry text must be 1-280 characters")
     out = Path("/output")
     out.mkdir(parents=True, exist_ok=True)
     (out / "entry.txt").write_text(TEXT, encoding="utf-8")
